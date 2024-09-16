@@ -14,7 +14,7 @@ export function SignupForm() {
 
   function handleSignup() {
     signup({ email, password }).then((data) => {
-      if (data.error) {
+      if (data?.error) {
         toast({ description: 'Something went wrong. Please try again', variant: 'destructive' });
       }
     });

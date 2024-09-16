@@ -14,7 +14,7 @@ export function LoginForm() {
 
   function handleLogin() {
     login({ email, password }).then((data) => {
-      if (data.error) {
+      if (data?.error) {
         toast({ description: 'Invalid email or password', variant: 'destructive' });
       }
     });
