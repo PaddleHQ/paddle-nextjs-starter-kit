@@ -1,0 +1,112 @@
+.dashboard-background-base {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.grain-background {
+  background: url('/assets/background/grain-bg.svg') repeat;
+}
+
+.dashboard-shared-top-grainy-blur {
+  position: absolute;
+  left: -131.023px;
+  top: -127.993px;
+  width: 211px;
+  height: 245px;
+  z-index: -1;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 251, 229, 0) 0%,
+    rgba(21, 227, 227, 0.06) 35.5%,
+    rgba(255, 248, 0, 0.48) 80.5%
+  );
+  filter: blur(26px);
+}
+.dashboard-shared-top-grainy-blur::before {
+  content: '';
+  left: 55px;
+  position: absolute;
+  width: 101px;
+  height: 167px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(168, 240, 248, 0.6) 100%);
+  filter: blur(26px);
+}
+
+.dashboard-shared-bottom-grainy-blur {
+  position: absolute;
+  transform: rotate(-90deg);
+  right: -440.007px;
+  bottom: -560px;
+  width: 820px;
+  height: 951px;
+  flex-shrink: 0;
+  border-radius: 951px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 251, 229, 0) 0%,
+    rgba(21, 227, 227, 0.06) 35.5%,
+    rgba(255, 248, 0, 0.48) 80.5%
+  );
+  filter: blur(100px);
+}
+
+.dashboard-shared-bottom-grainy-blur::before {
+  content: '';
+  position: absolute;
+  width: 394px;
+  height: 648px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(168, 240, 248, 0.6) 100%);
+  filter: blur(100px);
+}
+
+.dashboard-sidebar-items {
+  svg.lucide {
+    color: #4b4f4f;
+  }
+  &.dashboard-sidebar-items-active {
+    background: #161d1d;
+    svg.lucide {
+      color: hsl(var(--primary));
+    }
+  }
+}
+
+.dashboard-sidebar-items:hover {
+  background: #161d1d;
+  svg.lucide {
+    color: hsl(var(--primary));
+  }
+}
+
+.dashboard-sidebar-highlight:after {
+  content: '';
+  width: 248px;
+  height: 1px;
+  position: absolute;
+  left: 50%;
+  margin-left: -124px;
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 15%,
+    rgba(255, 248, 0, 0.6) 50%,
+    rgba(255, 255, 255, 0) 85%
+  );
+}
+
+.dashboard-header-highlight::after {
+  content: '';
+  width: 248px;
+  height: 1px;
+  position: absolute;
+  left: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 15%,
+    rgba(255, 248, 0, 0.6) 50%,
+    rgba(255, 255, 255, 0) 85%
+  );
+}

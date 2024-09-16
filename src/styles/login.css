@@ -1,0 +1,109 @@
+.login-background-base {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.grid-bg {
+  background: url('/assets/background/grid-bg.svg') no-repeat;
+}
+
+.grain-background {
+  mix-blend-mode: overlay;
+  background: url('/assets/background/grain-bg.svg') repeat;
+}
+
+.login-gradient-background {
+  background: url('/assets/background/login-gradient.svg') no-repeat top;
+}
+
+.login-card-border,
+.login-card-hard-blur,
+.login-card-vertical-hard-blur,
+.login-card-soft-blur,
+.login-card-yellow-highlight {
+  position: relative;
+}
+
+.login-card-border::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  border-radius: 16px 16px 0 0;
+  padding: 1px 1px 0;
+  background: linear-gradient(180deg, #414b4e 49.5%, rgba(65, 75, 78, 0) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.login-card-hard-blur::before {
+  content: '';
+  width: 88px;
+  height: 4px;
+  position: absolute;
+  left: 50%;
+  margin-left: -44px;
+  top: -2px;
+  background: #fff800;
+  opacity: 0.5;
+  filter: blur(12px);
+}
+
+.login-card-vertical-hard-blur::before {
+  content: '';
+  width: 128px;
+  height: 280px;
+  position: absolute;
+  left: 50%;
+  margin-left: -64px;
+  top: -140px;
+  border-radius: 280px;
+  opacity: 0.1;
+  background: #fff800;
+  filter: blur(48px);
+}
+
+.login-card-small-soft-blur::before {
+  width: 250px;
+}
+.login-card-medium-soft-blur::before {
+  width: 384px;
+}
+.login-card-soft-blur::before {
+  content: '';
+  height: 37px;
+  position: absolute;
+  left: 52px;
+  top: -19px;
+  border-radius: 384px;
+  opacity: 0.2;
+  background: #fff800;
+  filter: blur(32px);
+}
+
+.login-card-small-yellow-highlight::before {
+  width: 250px;
+  margin-left: -125px;
+}
+.login-card-medium-yellow-highlight::before {
+  width: 384px;
+  margin-left: -192px;
+}
+
+.login-card-yellow-highlight::before {
+  content: '';
+  height: 1px;
+  left: 50%;
+
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 15%,
+    rgba(255, 248, 0, 0.9) 50%,
+    rgba(255, 255, 255, 0) 85%
+  );
+}

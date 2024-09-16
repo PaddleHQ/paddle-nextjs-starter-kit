@@ -1,0 +1,21 @@
+.secondary-button-animation {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background: linear-gradient(90deg, hsla(0, 0%, 99%, 0.16), hsla(0, 0%, 99%, 0) 50%, hsla(0, 0%, 99%, 0));
+    background-size: 200%;
+    background-position: 100%;
+    transition: all 0.8s cubic-bezier(0.246, 0.75, 0.187, 1);
+    border-radius: inherit;
+  }
+  &:hover::after {
+    background-position: 0;
+    border-radius: inherit;
+  }
+}

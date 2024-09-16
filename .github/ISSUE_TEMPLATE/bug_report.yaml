@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a problem.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report a bug or problem with the Next.js starter kit for Paddle Billing.
+
+        Remember to remove sensitive information from screenshots, videos, or code samples before submitting.
+
+        **Do not create issues for potential security vulnerabilities.** Please see the [Paddle Vulnerability Disclosure Policy](https://www.paddle.com/vulnerability-disclosure-policy) and report any vulnerabilities [using our form](https://vdp.paddle.com/p/Report-a-Vulnerability).
+
+        Thanks for helping to make the Paddle platform better for everyone!
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug in a sentence or two. Feel free to add screenshots or a video to better explain!
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Explain how to reproduce this issue. We prefer a step-by-step walkthrough, where possible.
+      value: |
+        1.
+        2.
+        3.
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: What did you expect to happen?
+      description: Tell us what should happen when you encounter this bug.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Copy and paste any relevant logs. This is automatically formatted into code, so no need for backticks.
+      render: shell

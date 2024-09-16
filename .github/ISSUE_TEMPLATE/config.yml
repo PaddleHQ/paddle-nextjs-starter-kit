@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Get help
+    url: https://developer.paddle.com/
+    about: For help with the Paddle Node.js SDK or building your integration, contact our support team at [sellers@paddle.com](mailto:sellers@paddle.com).
+  - name: Report a vulnerability
+    url: https://vdp.paddle.com/p/Report-a-Vulnerability
+    about: Please see the [Paddle Vulnerability Disclosure Policy](https://www.paddle.com/vulnerability-disclosure-policy) and report any vulnerabilities using https://vdp.paddle.com/p/Report-a-Vulnerability.

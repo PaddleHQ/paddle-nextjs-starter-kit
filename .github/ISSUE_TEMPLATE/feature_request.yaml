@@ -1,0 +1,44 @@
+name: Feature request
+description: Suggest an idea.
+title: '[Feature]: '
+labels: ['feature']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to send us suggestions for improvements to the Next.js starter kit for Paddle Billing.
+
+        For general feedback about the Paddle API or developer platform, contact our DX team directly
+        at [team-dx@paddle.com](mailto:team-dx@paddle.com).
+
+        Thanks for helping to make the Paddle platform better for everyone!
+  - type: textarea
+    id: request
+    attributes:
+      label: Tell us about your feature request
+      description: Describe what you'd like to see added or improved.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you looking to solve?
+      description: Tell us how and why would implementing your suggestion would help.
+    validations:
+      required: true
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional context
+      description: Add any other context, screenshots, or illustrations about your suggestion here.
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How important is this suggestion to you?
+      options:
+        - Nice to have
+        - Important
+        - Critical
+      default: 0
+    validations:
+      required: true
