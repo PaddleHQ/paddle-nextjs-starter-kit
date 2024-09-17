@@ -1,5 +1,5 @@
 {
-  "name": "paddle-subscription",
+  "name": "@paddle/nextjs-starter-kit",
   "version": "0.1.0",
   "private": true,
   "engines": {
