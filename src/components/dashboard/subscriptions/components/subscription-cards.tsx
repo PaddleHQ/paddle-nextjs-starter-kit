@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, DollarSign } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Status } from '@/components/shared/status/status';
 import { Subscription } from '@paddle/paddle-node-sdk';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { convertAmountFromLowestUnit, parseMoney } from '@/utils/paddle/parse-money';
+import { parseMoney } from '@/utils/paddle/parse-money';
 
 interface Props {
   subscriptions: Subscription[];

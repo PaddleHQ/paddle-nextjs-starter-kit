@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import { User } from '@supabase/supabase-js';
-import { createClient } from '@/utils/supabase/client';
-import { MouseEvent } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 

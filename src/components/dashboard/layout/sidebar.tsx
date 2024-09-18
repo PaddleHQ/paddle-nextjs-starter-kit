@@ -1,6 +1,6 @@
 'use client';
 
-import { Album, CreditCard, Home, User } from 'lucide-react';
+import { Album, CreditCard, Home } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
