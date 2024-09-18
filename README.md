@@ -72,7 +72,7 @@ Then, enter Paddle environment variables:
 
 Use `https://<PROJECTNAME>.vercel.app/api/webhook` as the endpoint URL for your notification destination, where `<PROJECTNAME>` is the name of your project in Vercel. For example, `https://paddle-billing.vercel.app/api/webhook`.
 
-If your project name isn't unique, your Vercel deploy URL may not match the URL you entered here. We can review and update this after deploy.
+If your project name isn't unique, your Vercel deploy URL may not match the URL you enter here. We can review and update this after deploy.
 
 #### Deploy
 
