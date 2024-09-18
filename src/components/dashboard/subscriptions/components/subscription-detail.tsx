@@ -9,7 +9,6 @@ import { SubscriptionHeader } from '@/components/dashboard/subscriptions/compone
 import { Separator } from '@/components/ui/separator';
 import { ErrorContent } from '@/components/dashboard/layout/error-content';
 import { useEffect, useState } from 'react';
-import { Subscription, Transaction } from '@paddle/paddle-node-sdk';
 import { LoadingScreen } from '@/components/dashboard/layout/loading-screen';
 import { SubscriptionDetailResponse, TransactionResponse } from '@/lib/api.types';
 

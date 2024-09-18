@@ -1,5 +1,4 @@
 import { Skeleton } from '@/components/ui/skeleton';
-import { PricePreviewResponse } from '@paddle/paddle-js';
 import { CheckoutEventsData } from '@paddle/paddle-js/types/checkout/events';
 import { formatMoney } from '@/utils/paddle/parse-money';
 

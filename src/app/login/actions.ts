@@ -2,7 +2,6 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
 import { createClient } from '@/utils/supabase/server';
 
 interface FormData {
@@ -32,4 +31,19 @@ export async function signInWithGithub() {
   if (data.url) {
     redirect(data.url);
   }
+}
+
+export async function loginAnonymously() {
+  const supabase = createClient();
+  const { error: signInError } = await supabase.auth.signInAnonymously();
+  const { error: updateUserError } = await supabase.auth.updateUser({
+    email: `anonymous+${Date.now().toString(36)}@example.com`,
+  });
+
+  if (signInError || updateUserError) {
+    return { error: true };
+  }
+
+  revalidatePath('/', 'layout');
+  redirect('/');
 }

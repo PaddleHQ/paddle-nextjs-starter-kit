@@ -1,6 +1,5 @@
 import { QuantityField } from '@/components/checkout/quantity-field';
 import { Separator } from '@/components/ui/separator';
-import { PricePreviewResponse } from '@paddle/paddle-js';
 import { CheckoutEventsData } from '@paddle/paddle-js/types/checkout/events';
 import { formatMoney } from '@/utils/paddle/parse-money';
 import { Skeleton } from '@/components/ui/skeleton';
