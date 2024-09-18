@@ -4,8 +4,8 @@ import { Status } from '@/components/shared/status/status';
 import { parseMoney } from '@/utils/paddle/parse-money';
 import dayjs from 'dayjs';
 import { SubscriptionHeaderActionButton } from '@/components/dashboard/subscriptions/components/subscription-header-action-button';
-import { Alert } from '@/components/ui/alert';
 import { SubscriptionAlerts } from '@/components/dashboard/subscriptions/components/subscription-alerts';
+import { MobileSidebar } from '@/components/dashboard/layout/mobile-sidebar';
 
 interface Props {
   subscription: Subscription;
@@ -24,16 +24,17 @@ export function SubscriptionHeader({ subscription }: Props) {
   const formattedStartedDate = dayjs(subscription.startedAt).format('MMM DD, YYYY');
 
   return (
-    <div className={'flex justify-between items-center'}>
+    <div className={'flex justify-between items-start sm:items-center flex-col sm:flex-row mb-6 sm:mb-0'}>
       <div className={'flex flex-col w-full'}>
         <SubscriptionAlerts subscription={subscription} />
         <div className={'flex items-center gap-5'}>
+          <MobileSidebar />
           {subscriptionItem.product.imageUrl && (
             <Image src={subscriptionItem.product.imageUrl} alt={subscriptionItem.product.name} width={48} height={48} />
           )}
           <span className={'text-4xl leading-9 font-medium'}>{subscriptionItem.product.name}</span>
         </div>
-        <div className={'flex items-center gap-8 py-8 pb-6'}>
+        <div className={'flex items-center gap-6 py-8 pb-6 flex-wrap md:flex-wrap'}>
           <div className={'flex gap-1 items-end'}>
             <span className={'text-4xl leading-9 font-medium'}>{formattedPrice}</span>
             <span className={'text-secondary text-sm leading-[14px] font-medium'}>{frequency}</span>

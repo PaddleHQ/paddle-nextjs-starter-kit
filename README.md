@@ -53,7 +53,7 @@ This starter kit is built with:
 
 Click this button to clone this repo and create a new project in your Vercel account:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPaddleHQ%2Fpaddle-nextjs-starter-kit&env=PADDLE_API_KEY,PADDLE_NOTIFICATION_WEBHOOK_SECRET,NEXT_PUBLIC_PADDLE_ENV,NEXT_PUBLIC_PADDLE_CLIENT_TOKEN&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPaddleHQ%2Fpaddle-nextjs-starter-kit&env=PADDLE_API_KEY,NEXT_PUBLIC_PADDLE_ENV,NEXT_PUBLIC_PADDLE_CLIENT_TOKEN&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6&external-id=https%3A%2F%2Fgithub.com%2FPaddleHQ%2Fpaddle-nextjs-starter-kit%2Ftree%2Fmain)
 
 You can also [create a new application manually](https://vercel.com/new).
 

@@ -10,7 +10,7 @@ export function MultipleSubscriptionsView({ subscriptions }: Props) {
   return (
     <>
       <DashboardPageHeader pageTitle={'Subscriptions'} />
-      <SubscriptionCards className={'grid-cols-1 lg:grid-cols-3 gap-8'} subscriptions={subscriptions} />
+      <SubscriptionCards className={'grid-cols-1 lg:grid-cols-3 gap-6'} subscriptions={subscriptions} />
     </>
   );
 }
