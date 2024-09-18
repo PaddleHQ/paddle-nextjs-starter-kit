@@ -21,7 +21,7 @@ export function SubscriptionCards({ subscriptions, className }: Props) {
         {subscriptions.map((subscription) => {
           const subscriptionItem = subscription.items[0];
           const price = subscriptionItem.quantity * parseFloat(subscriptionItem.price.unitPrice.amount);
-          const formattedPrice = parseMoney(price.toString(), subscriptionItem.price.unitPrice.currencyCode);
+          const formattedPrice = parseMoney(price.toString(), subscription.currencyCode);
           const frequency =
             subscription.billingCycle.frequency === 1
               ? `/${subscription.billingCycle.interval}`
@@ -30,7 +30,12 @@ export function SubscriptionCards({ subscriptions, className }: Props) {
             <Card key={subscription.id} className={'bg-background/50 backdrop-blur-[24px] border-border p-6'}>
               <CardHeader className="p-0 space-y-0">
                 <CardTitle className="flex flex-col justify-between items-start mb-6">
-                  <div className={'flex mb-4 justify-between w-full'}>
+                  <div
+                    className={cn('flex mb-4 w-full', {
+                      'justify-between': subscriptionItem.product.imageUrl,
+                      'justify-end': !subscriptionItem.product.imageUrl,
+                    })}
+                  >
                     {subscriptionItem.product.imageUrl && (
                       <Image
                         src={subscriptionItem.product.imageUrl}

@@ -17,9 +17,12 @@ export async function DashboardSubscriptionCardGroup() {
           </Button>
         </CardTitle>
       </CardHeader>
-      <CardContent className={'p-0 pt-6'}>
+      <CardContent className={'p-0 pt-6 @container'}>
         {subscriptions?.data ? (
-          <SubscriptionCards className={'grid-cols-2 gap-6'} subscriptions={subscriptions.data.slice(0, 2) ?? []} />
+          <SubscriptionCards
+            className={'grid-cols-1 gap-6 @[600px]:grid-cols-2'}
+            subscriptions={subscriptions.data.slice(0, 2) ?? []}
+          />
         ) : (
           <ErrorContent />
         )}

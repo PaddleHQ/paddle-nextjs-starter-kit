@@ -20,7 +20,7 @@ export function PaymentMethodSection({ transactions, updatePaymentMethodUrl }: P
     return null;
   }
   return (
-    <div className={'flex gap-6 pt-6 items-end justify-between'}>
+    <div className={'flex gap-6 pt-6 items-end justify-between @16xs:flex-wrap'}>
       <div className={'flex flex-col gap-4'}>
         <div className={'text-base text-secondary leading-4 whitespace-nowrap'}>Payment method</div>
         <div className={'flex gap-1 items-end'}>
@@ -31,7 +31,7 @@ export function PaymentMethodSection({ transactions, updatePaymentMethodUrl }: P
         <div>
           <Button asChild={true} size={'sm'} className={'text-sm rounded-sm border-border'} variant={'outline'}>
             <Link target={'_blank'} href={updatePaymentMethodUrl}>
-              Manage
+              Update
             </Link>
           </Button>
         </div>

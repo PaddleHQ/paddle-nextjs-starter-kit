@@ -44,12 +44,14 @@ export const columns: ColumnDef<Transaction>[] = [
     size: columnSize,
     cell: ({ row }) => {
       return (
-        <div className={'whitespace-nowrap flex gap-1'}>
-          <span className={'font-semibold'}>{getPaymentReason(row.original.origin)}</span>
-          <span className={'font-medium'}>{row.original.details?.lineItems[0].product?.name}</span>
-          {row.original.details?.lineItems && row.original.details?.lineItems.length > 1 && (
-            <span className={'font-medium'}>+{row.original.details?.lineItems.length - 1} more</span>
-          )}
+        <div className={'max-w-[250px]'}>
+          <div className={'whitespace-nowrap flex gap-1 truncate'}>
+            <span className={'font-semibold'}>{getPaymentReason(row.original.origin)}</span>
+            <span className={'font-medium truncate'}>{row.original.details?.lineItems[0].product?.name}</span>
+            {row.original.details?.lineItems && row.original.details?.lineItems.length > 1 && (
+              <span className={'font-medium'}>+{row.original.details?.lineItems.length - 1} more</span>
+            )}
+          </div>
         </div>
       );
     },

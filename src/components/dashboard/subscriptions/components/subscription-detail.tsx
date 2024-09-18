@@ -49,12 +49,12 @@ export function SubscriptionDetail({ subscriptionId }: Props) {
           <SubscriptionHeader subscription={subscription.data} />
           <Separator className={'relative bg-border mb-8 dashboard-header-highlight'} />
         </div>
-        <div className={'grid flex-1 items-start gap-8 xl:grid-cols-4'}>
-          <div className={'grid auto-rows-max items-start gap-8'}>
+        <div className={'grid gap-6 grid-cols-1 xl:grid-cols-6'}>
+          <div className={'grid auto-rows-max gap-6 grid-cols-1 xl:col-span-2'}>
             <SubscriptionNextPaymentCard transactions={transactions.data} subscription={subscription.data} />
             <SubscriptionPastPaymentsCard transactions={transactions.data} subscriptionId={subscriptionId} />
           </div>
-          <div className={'grid auto-rows-max items-start gap-8 xl:col-span-3'}>
+          <div className={'grid auto-rows-max gap-6 grid-cols-1 xl:col-span-4'}>
             <SubscriptionLineItems subscription={subscription.data} />
           </div>
         </div>
