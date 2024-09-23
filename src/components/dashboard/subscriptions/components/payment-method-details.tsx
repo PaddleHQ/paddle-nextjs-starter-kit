@@ -3,7 +3,7 @@ import { CreditCard } from 'lucide-react';
 
 const PaymentMethodLabels: Record<PaddlePaymentMethodDetails['type'], string> = {
   card: 'Card',
-  alipay: 'AliPay',
+  alipay: 'Alipay',
   wire_transfer: 'Wire Transfer',
   apple_pay: 'Apple Pay',
   google_pay: 'Google Pay',
