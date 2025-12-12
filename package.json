@@ -42,7 +42,7 @@
     "dayjs": "^1.11.18",
     "lodash.throttle": "^4.1.1",
     "lucide-react": "^0.544.0",
-    "next": "15.5.7",
+    "next": "15.5.9",
     "react": "19.1.2",
     "react-dom": "19.1.2",
     "tailwind-merge": "^3.3.1",
