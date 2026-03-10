@@ -15,7 +15,7 @@ See it in action: [https://paddle-billing.vercel.app/](https://paddle-billing.ve
 ## Features
 
 - Three-tier pricing page that's fully localized for 200+ markets using [Paddle.js](https://developer.paddle.com/paddlejs/overview).
-- An integrated checkout experience built with [Paddle Checkout](https://developer.paddle.com/concepts/sell/self-serve-checkout), with secure [optimized payments](https://developer.paddle.com/concepts/payment-methods/overview?utm_source=dx&utm_medium=paddle-nextjs-starter-kit) by card, Apple Pay, Google Pay, PayPal, and others.
+- An integrated checkout experience built with [Paddle Checkout](https://developer.paddle.com/concepts/sell/self-serve-checkout), with secure [optimized payments](https://developer.paddle.com/concepts/payment-methods/overview?utm_source=dx&utm_medium=paddle-nextjs-starter-kit) by card, Apple Pay, Google Pay, PayPal, [WeChat Pay](https://developer.paddle.com/concepts/payment-methods/wechat-pay), and others.
 - User management and auth handled by [Supabase](https://supabase.com/).
 - Ready-made screens to let customers manage their payments and subscriptions.
 - Automatic syncing of customer and subscription data between Paddle and your app using [webhooks](https://developer.paddle.com/webhooks/overview?utm_source=dx&utm_medium=paddle-nextjs-starter-kit).
@@ -127,6 +127,15 @@ You must add URLs to Paddle before you can launch a checkout from them. This pro
 3. Go to [**Paddle > Developer tools > Notifications**](https://sandbox-vendors.paddle.com/notifications), then check that the endpoint URL matches your Vercel demo app link domain.
 
 > **Important:** Website approval is instant for sandbox accounts, but may take a little while for live accounts while the Paddle seller verification team check your website.
+
+#### Enable WeChat Pay (optional)
+
+To accept [WeChat Pay](https://developer.paddle.com/concepts/payment-methods/wechat-pay) for customers in China:
+
+1. Go to [**Paddle > Checkout > Checkout settings**](https://sandbox-vendors.paddle.com/checkout-settings).
+2. On the **General** tab, check **WeChat Pay** and click **Save**.
+
+WeChat Pay is shown automatically when the customer’s country is China and the price is in **CNY** or **USD**. Ensure you have [prices in CNY or USD](https://developer.paddle.com/build/products/create-products-prices?utm_source=dx&utm_medium=paddle-nextjs-starter-kit) in your Paddle catalog for the Chinese market. On desktop, customers scan a QR code with the WeChat app; no code changes are required in this repo. You don’t need a WeChat Pay account or an entity in China.
 
 #### Test
 
