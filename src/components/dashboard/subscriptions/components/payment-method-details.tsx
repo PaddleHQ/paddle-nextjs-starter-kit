@@ -20,6 +20,7 @@ const PaymentMethodLabels: Record<PaddlePaymentMethodDetails['type'], string> = 
   pix: 'Pix',
   samsung_pay: 'Samsung Pay',
   upi: 'UPI',
+  wechat_pay: 'WeChat Pay',
   offline: 'Offline',
   unknown: 'Unknown',
 };
