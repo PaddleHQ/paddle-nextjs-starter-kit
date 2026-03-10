@@ -13,11 +13,11 @@ importers:
   .:
     dependencies:
       '@paddle/paddle-js':
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.6.2
+        version: 1.6.2
       '@paddle/paddle-node-sdk':
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.6.0
+        version: 3.6.0
       '@radix-ui/react-accordion':
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(react-dom@19.1.5(react@19.1.5))(react@19.1.5)
@@ -442,11 +442,11 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@paddle/paddle-js@1.5.1':
-    resolution: {integrity: sha512-n5btAxhRt3ws0/7g8tlz5yH1kYbN3DRp4pKQD5F2hueovmn6rasxrlJJgd33+dI9amA2w2OjkV+mxuori4eEJA==}
+  '@paddle/paddle-js@1.6.2':
+    resolution: {integrity: sha512-nx1NXCzwWUWjf0iaRDiXZlfWgFjNZ6996RFcTDk0G0ggzrh514Zsc6jGTPOUGdLB1sYJXVQiKKoNLoKoXhH+sA==}
 
-  '@paddle/paddle-node-sdk@3.4.0':
-    resolution: {integrity: sha512-oBgUo9o2PbVP5GUpLOzWtq9gYQqLzIVZ/gav7PqzrlC/9qRcNagOQ63kD050f3ts8+iSvONqiclMAWGF1aOGEA==}
+  '@paddle/paddle-node-sdk@3.6.0':
+    resolution: {integrity: sha512-EFP1thHb1FVuKGwSJ/+/oj5FvCk3l3adyVy/mpUnDq/MM31RdcAdNn+AZ8qYd0pF4rJxtwXmWMGjXqjHKhKHuA==}
     engines: {node: '>=20'}
 
   '@radix-ui/number@1.1.1':
@@ -2864,9 +2864,9 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@paddle/paddle-js@1.5.1': {}
+  '@paddle/paddle-js@1.6.2': {}
 
-  '@paddle/paddle-node-sdk@3.4.0': {}
+  '@paddle/paddle-node-sdk@3.6.0': {}
 
   '@radix-ui/number@1.1.1': {}
 
@@ -4008,7 +4008,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.43.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@9.36.0(jiti@2.5.1)):
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.43.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0)(eslint@9.36.0(jiti@2.5.1)))(eslint@9.36.0(jiti@2.5.1)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -4030,7 +4030,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.36.0(jiti@2.5.1)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.43.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@9.36.0(jiti@2.5.1))
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.43.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0)(eslint@9.36.0(jiti@2.5.1)))(eslint@9.36.0(jiti@2.5.1))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
