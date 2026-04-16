@@ -6,8 +6,8 @@ permissions:
 jobs:
   test:
     permissions:
-      actions: write  # for styfle/cancel-workflow-action to cancel/stop running workflows
-      contents: read  # for actions/checkout to fetch code
+      actions: write # for styfle/cancel-workflow-action to cancel/stop running workflows
+      contents: read # for actions/checkout to fetch code
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
