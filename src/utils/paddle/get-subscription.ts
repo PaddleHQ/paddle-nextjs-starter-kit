@@ -13,6 +13,10 @@ export async function getSubscription(subscriptionId: string): Promise<Subscript
         include: ['next_transaction', 'recurring_transaction_details'],
       });
 
+      if (subscription.customerId !== customerId) {
+        return { error: ErrorMessage };
+      }
+
       return { data: parseSDKResponse(subscription) };
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
