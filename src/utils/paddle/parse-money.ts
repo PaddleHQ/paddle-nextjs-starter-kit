@@ -2,6 +2,8 @@ export function convertAmountFromLowestUnit(amount: string, currency: string) {
   switch (currency) {
     case 'JPY':
     case 'KRW':
+    case 'VND':
+    case 'CLP':
       return parseFloat(amount);
     default:
       return parseFloat(amount) / 100;

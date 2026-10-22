@@ -53,7 +53,7 @@ export function CheckoutContents({ userEmail }: Props) {
             frameTarget: 'paddle-checkout-frame',
             frameInitialHeight: 450,
             frameStyle: 'width: 100%; background-color: transparent; border: none',
-            successUrl: '/checkout/success',
+            successUrl: `${window.location.origin}/checkout/success`,
           },
         },
       }).then(async (paddle) => {
