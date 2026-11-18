@@ -33,6 +33,8 @@ export class ProcessWebhook {
         product_id: eventData.data.items[0].price?.productId ?? '',
         scheduled_change: eventData.data.scheduledChange?.effectiveAt,
         customer_id: eventData.data.customerId,
+        // Paddle does not guarantee order: a trigger skips events older than the stored one
+        event_occurred_at: eventData.occurredAt,
       })
       .select();
 
