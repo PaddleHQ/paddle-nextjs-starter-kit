@@ -14,7 +14,8 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "lint-staged": "lint-staged",
-    "test": "pnpm lint && pnpm prettier:check"
+    "test": "pnpm lint && pnpm prettier:check && npm run test:race",
+    "test:race": "npx -y viberaven@1.10.0 race . --spec race/webhook.race.json --migrations race"
   },
   "git": {
     "pre-commit": "lint-staged"
