@@ -36,6 +36,9 @@ importers:
         specifier: ^4.6.7
         version: 4.6.7
     devDependencies:
+      '@next/env':
+        specifier: 16.4.6
+        version: 16.4.6
       '@tailwindcss/turbopack':
         specifier: 4.3.3
         version: 4.3.3
