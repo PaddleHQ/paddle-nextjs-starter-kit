@@ -13,6 +13,10 @@ export const env = createEnv({
       .string()
       .regex(/^pdl_(sdbx|live)_apikey_/, "Must be a Paddle API key (pdl_sdbx_apikey_… or pdl_live_apikey_…)"),
     PADDLE_NOTIFICATION_WEBHOOK_SECRET: z.string().min(1),
+    BETTER_AUTH_SECRET: z.string().min(32, "Must be at least 32 characters"),
+    BETTER_AUTH_URL: z.url(),
+    GITHUB_CLIENT_ID: z.string().optional(),
+    GITHUB_CLIENT_SECRET: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_PADDLE_ENV: z.enum(["sandbox", "production"]),
@@ -40,6 +44,13 @@ export const env = createEnv({
           code: "custom",
           path: ["PADDLE_API_KEY"],
           message: `Must start with ${expected.apiKey} when NEXT_PUBLIC_PADDLE_ENV is ${vars.NEXT_PUBLIC_PADDLE_ENV}`,
+        });
+      }
+      if (isServer && !vars.GITHUB_CLIENT_ID !== !vars.GITHUB_CLIENT_SECRET) {
+        ctx.addIssue({
+          code: "custom",
+          path: [vars.GITHUB_CLIENT_ID ? "GITHUB_CLIENT_SECRET" : "GITHUB_CLIENT_ID"],
+          message: "Set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET together, or leave both empty",
         });
       }
     }),
