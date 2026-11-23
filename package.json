@@ -8,12 +8,14 @@
     "start": "next start",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "auth:generate": "SKIP_ENV_VALIDATION=1 auth generate --config src/lib/auth.ts --output src/db/auth-schema.ts --yes"
   },
   "dependencies": {
     "@paddle/paddle-js": "^1.6.6",
     "@paddle/paddle-node-sdk": "^3.11.1",
     "@t3-oss/env-nextjs": "^0.13.11",
+    "better-auth": "1.7.27",
     "drizzle-orm": "^0.45.4",
     "next": "16.4.6",
     "postgres": "^4.1.1",
@@ -27,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "auth": "1.7.27",
     "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
