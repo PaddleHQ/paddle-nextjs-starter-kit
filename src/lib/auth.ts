@@ -18,6 +18,8 @@ export const auth = betterAuth({
   socialProviders: githubEnabled
     ? { github: { clientId: env.GITHUB_CLIENT_ID!, clientSecret: env.GITHUB_CLIENT_SECRET! } }
     : {},
+  // Paddle delivers webhooks from a handful of IPs, so a burst would trip the per-IP limit and push events into Paddle's retry backoff.
+  rateLimit: { customRules: { "/paddle/webhook": false } },
   plugins: [
     paddle({
       paddleClient,
