@@ -69,6 +69,11 @@ export async function signIn(_prev: AuthFormState, formData: FormData): Promise<
   redirect(safeCallbackURL(formData.get("callbackURL")));
 }
 
+export async function signOut(): Promise<void> {
+  await auth.api.signOut({ headers: await headers() });
+  redirect("/login");
+}
+
 export async function signInWithGitHub(formData: FormData): Promise<void> {
   const { url } = await auth.api.signInSocial({
     body: { provider: "github", callbackURL: safeCallbackURL(formData.get("callbackURL")) },
