@@ -1,5 +1,12 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  text,
+  timestamp,
+  boolean,
+  integer,
+  index,
+} from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -12,6 +19,7 @@ export const user = pgTable("user", {
     .defaultNow()
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
+  paddleCustomerId: text("paddle_customer_id"),
 });
 
 export const session = pgTable(
@@ -72,6 +80,27 @@ export const verification = pgTable(
   },
   (table) => [index("verification_identifier_idx").on(table.identifier)],
 );
+
+export const subscription = pgTable("subscription", {
+  id: text("id").primaryKey(),
+  plan: text("plan"),
+  referenceId: text("reference_id").notNull(),
+  paddleCustomerId: text("paddle_customer_id").notNull(),
+  paddleSubscriptionId: text("paddle_subscription_id").notNull().unique(),
+  paddleTransactionId: text("paddle_transaction_id"),
+  status: text("status").notNull(),
+  priceId: text("price_id"),
+  quantity: integer("quantity").default(1),
+  periodStart: timestamp("period_start"),
+  periodEnd: timestamp("period_end"),
+  trialStart: timestamp("trial_start"),
+  trialEnd: timestamp("trial_end"),
+  cancelAtPeriodEnd: boolean("cancel_at_period_end").default(false),
+  scheduledChange: text("scheduled_change"),
+  lastEventAt: timestamp("last_event_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
 
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
