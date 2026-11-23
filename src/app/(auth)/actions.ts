@@ -1,9 +1,10 @@
 "use server";
 
-import { APIError } from "better-auth/api";
-import { headers } from "next/headers";
+import { parseSetCookieHeader, toCookieOptions } from "better-auth/cookies";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import * as z from "zod";
+import { env } from "@/env";
 import { auth } from "@/lib/auth";
 import { safeCallbackURL } from "@/lib/callback-url";
 
@@ -13,6 +14,7 @@ export type AuthFormState = {
 };
 
 const GENERIC_ERROR = "Something went wrong. Please try again";
+const RATE_LIMITED_ERROR = "Too many attempts. Please wait a moment and try again";
 
 const API_ERROR_MESSAGES: Record<string, string> = {
   INVALID_EMAIL_OR_PASSWORD: "Invalid email or password",
@@ -30,17 +32,41 @@ const signInSchema = z.object({
   password: z.string().min(1, "Enter your password"),
 });
 
+type AuthResult = { ok: true; data: Record<string, unknown> | null } | { ok: false; error: string };
+
+// Calls go through auth.handler rather than auth.api.* so Better Auth's router middleware runs:
+// its sign-in/sign-up rate limits and its callbackURL origin check only apply there.
+async function callAuth(path: string, body: Record<string, unknown>): Promise<AuthResult> {
+  const requestHeaders = new Headers(await headers());
+  requestHeaders.delete("content-length");
+  requestHeaders.set("content-type", "application/json");
+
+  const response = await auth.handler(
+    new Request(new URL(`/api/auth${path}`, env.BETTER_AUTH_URL), {
+      method: "POST",
+      headers: requestHeaders,
+      body: JSON.stringify(body),
+    }),
+  );
+  const data = await response.json().catch(() => null);
+
+  // nextCookies() skips router calls, so copy the handler's cookies (session, OAuth state) onto this response.
+  const setCookie = response.headers.get("set-cookie");
+  if (setCookie) {
+    const cookieStore = await cookies();
+    parseSetCookieHeader(setCookie).forEach((attributes, name) => {
+      if (name) cookieStore.set(name, attributes.value, toCookieOptions(attributes));
+    });
+  }
+
+  if (response.status === 429) return { ok: false, error: RATE_LIMITED_ERROR };
+  if (!response.ok) return { ok: false, error: API_ERROR_MESSAGES[data?.code] ?? GENERIC_ERROR };
+  return { ok: true, data };
+}
+
 function field(formData: FormData, name: string): string {
   const value = formData.get(name);
   return typeof value === "string" ? value : "";
-}
-
-function errorMessage(error: unknown): string {
-  if (error instanceof APIError) {
-    const code = error.body?.code;
-    if (code && code in API_ERROR_MESSAGES) return API_ERROR_MESSAGES[code];
-  }
-  return GENERIC_ERROR;
 }
 
 export async function signUp(_prev: AuthFormState, formData: FormData): Promise<AuthFormState> {
@@ -48,11 +74,8 @@ export async function signUp(_prev: AuthFormState, formData: FormData): Promise<
   const parsed = signUpSchema.safeParse({ ...values, password: field(formData, "password") });
   if (!parsed.success) return { error: parsed.error.issues[0].message, values };
 
-  try {
-    await auth.api.signUpEmail({ body: parsed.data, headers: await headers() });
-  } catch (error) {
-    return { error: errorMessage(error), values };
-  }
+  const result = await callAuth("/sign-up/email", parsed.data);
+  if (!result.ok) return { error: result.error, values };
   redirect(safeCallbackURL(formData.get("callbackURL")));
 }
 
@@ -61,11 +84,8 @@ export async function signIn(_prev: AuthFormState, formData: FormData): Promise<
   const parsed = signInSchema.safeParse({ ...values, password: field(formData, "password") });
   if (!parsed.success) return { error: parsed.error.issues[0].message, values };
 
-  try {
-    await auth.api.signInEmail({ body: parsed.data, headers: await headers() });
-  } catch (error) {
-    return { error: errorMessage(error), values };
-  }
+  const result = await callAuth("/sign-in/email", parsed.data);
+  if (!result.ok) return { error: result.error, values };
   redirect(safeCallbackURL(formData.get("callbackURL")));
 }
 
@@ -75,10 +95,11 @@ export async function signOut(): Promise<void> {
 }
 
 export async function signInWithGitHub(formData: FormData): Promise<void> {
-  const { url } = await auth.api.signInSocial({
-    body: { provider: "github", callbackURL: safeCallbackURL(formData.get("callbackURL")) },
-    headers: await headers(),
+  const result = await callAuth("/sign-in/social", {
+    provider: "github",
+    callbackURL: safeCallbackURL(formData.get("callbackURL")),
   });
-  if (!url) throw new Error("GitHub sign-in did not return a redirect URL");
+  const url = result.ok ? result.data?.url : undefined;
+  if (typeof url !== "string") throw new Error("GitHub sign-in did not return a redirect URL");
   redirect(url);
 }
