@@ -14,7 +14,7 @@ export const env = createEnv({
       .regex(/^pdl_(sdbx|live)_apikey_/, "Must be a Paddle API key (pdl_sdbx_apikey_… or pdl_live_apikey_…)"),
     PADDLE_NOTIFICATION_WEBHOOK_SECRET: z.string().min(1),
     BETTER_AUTH_SECRET: z.string().min(32, "Must be at least 32 characters"),
-    BETTER_AUTH_URL: z.url(),
+    BETTER_AUTH_URL: z.url({ protocol: /^https?$/ }),
     GITHUB_CLIENT_ID: z.string().optional(),
     GITHUB_CLIENT_SECRET: z.string().optional(),
   },
