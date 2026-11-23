@@ -25,6 +25,7 @@ export const auth = betterAuth({
       paddleClient,
       webhookSecret: env.PADDLE_NOTIFICATION_WEBHOOK_SECRET,
       checkoutPage: "/checkout",
+      createCustomerOnSignUp: false,
       subscription: { enabled: true, plans },
     }),
     // Must stay last: it sets cookies from server actions after the other plugins run.
