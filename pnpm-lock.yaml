@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@paddle/better-auth':
+        specifier: 0.1.0
+        version: 0.1.0(@paddle/paddle-js@1.6.6)(@paddle/paddle-node-sdk@3.11.1)(better-auth@1.7.27(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(kysely@0.29.9)(postgres@4.1.1))(next@16.4.6(@babel/core@7.29.13)(@types/node@20.19.43)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
       '@paddle/paddle-js':
         specifier: ^1.6.6
         version: 1.6.6
@@ -1191,6 +1194,20 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
+
+  '@paddle/better-auth@0.1.0':
+    resolution: {integrity: sha512-rwJTusON1p3SWWRGJtWzK10TWn3Ut6jHG1EiywXFsJ5r0p11BwVpp9NTAjPRYadBLyhEvRxpvxQ3KTlfkFFJAw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@paddle/paddle-js': '>=1.0.0'
+      '@paddle/paddle-node-sdk': '>=3.0.0'
+      better-auth: '>=1.3.0'
+      react: '>=18'
+    peerDependenciesMeta:
+      '@paddle/paddle-js':
+        optional: true
+      react:
+        optional: true
 
   '@paddle/paddle-js@1.6.6':
     resolution: {integrity: sha512-MHkqW4b7DP6F0HvbNG6HnGcSUdX2znwsvENIqJQuMqTtwcRPo6tTg8m1ail02mAODbFu/wsWUcRdsW7a9DVyTQ==}
@@ -5252,6 +5269,15 @@ snapshots:
       fastq: 1.20.3
 
   '@nolyfill/is-core-module@1.0.39': {}
+
+  '@paddle/better-auth@0.1.0(@paddle/paddle-js@1.6.6)(@paddle/paddle-node-sdk@3.11.1)(better-auth@1.7.27(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(kysely@0.29.9)(postgres@4.1.1))(next@16.4.6(@babel/core@7.29.13)(@types/node@20.19.43)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)':
+    dependencies:
+      '@paddle/paddle-node-sdk': 3.11.1
+      better-auth: 1.7.27(drizzle-kit@0.31.11)(drizzle-orm@0.45.4(kysely@0.29.9)(postgres@4.1.1))(next@16.4.6(@babel/core@7.29.13)(@types/node@20.19.43)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      zod: 4.6.7
+    optionalDependencies:
+      '@paddle/paddle-js': 1.6.6
+      react: 19.3.0
 
   '@paddle/paddle-js@1.6.6': {}
 
