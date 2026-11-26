@@ -4,6 +4,7 @@ import { AuthCard } from "@/components/auth/auth-card";
 import { GitHubButton } from "@/components/auth/github-button";
 import { SignupForm } from "@/components/auth/signup-form";
 import { githubEnabled } from "@/lib/auth";
+import { withCallback } from "@/lib/callback-url";
 
 export default function SignupPage({ searchParams }: PageProps<"/signup">) {
   return (
@@ -27,7 +28,7 @@ function SignupCard({ callbackURL }: { callbackURL?: string }) {
       footer={
         <>
           Already have an account?{" "}
-          <Link href="/login" className="text-white">
+          <Link href={withCallback("/login", callbackURL)} className="text-white">
             Log in
           </Link>
         </>

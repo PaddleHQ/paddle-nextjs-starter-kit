@@ -13,3 +13,8 @@ export function safeCallbackURL(value: FormDataEntryValue | string | null | unde
   if (url.origin !== PARSE_BASE) return DEFAULT_CALLBACK_URL;
   return url.pathname + url.search + url.hash;
 }
+
+/** Keeps the return path when moving between the login and sign-up pages. */
+export function withCallback(path: string, callbackURL: string | undefined): string {
+  return callbackURL ? `${path}?${new URLSearchParams({ callbackURL: safeCallbackURL(callbackURL) })}` : path;
+}

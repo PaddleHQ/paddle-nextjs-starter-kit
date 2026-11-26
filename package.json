@@ -9,6 +9,7 @@
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
+    "seed": "node scripts/seed.mts",
     "auth:generate": "SKIP_ENV_VALIDATION=1 auth generate --config src/lib/auth.ts --output src/db/auth-schema.ts --yes"
   },
   "dependencies": {
